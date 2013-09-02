@@ -656,7 +656,45 @@ header #header-right {
 /* ---- //// END SEARCH STYLES ////---- */
 
 
+/* ---- //// BEGIN TOP TEN SEARCHES STYLES ////---- */
 
+
+	.top-ten-searches {
+		margin: 100px auto;
+		padding: 50px;
+		background: #666;
+		
+	}
+	
+	.top-ten-searches h1 {
+		font-size: 2.2em;
+		color: #fff;
+		margin: 15px auto;
+		
+	}
+	
+	.top-ten-searches ul li {
+		font-size: 2em;
+		list-style: none;
+		font-family: 'Roboto', Arial, sans-serif;
+		line-height: 2;
+		
+	}
+	
+	.top-ten-searches ul li a {
+		text-decoration: none;
+		color: #fff;
+		
+	}
+	
+	.top-ten-searches ul li a:hover {
+		text-decoration: none;
+		color: #F90;
+		
+	}
+
+
+/* ---- //// END TOP TEN SEARCHES STYLES ////---- */
 
 
 /* ---- MEDIA SELECTORS ---- */

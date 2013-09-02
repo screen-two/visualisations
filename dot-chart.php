@@ -10,7 +10,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script src="http://d3js.org/d3.v3.js"></script>
 
-</head>
+</head>f
 
 
 <body>
@@ -28,6 +28,8 @@ var x = d3.time.scale()
 
 var y = d3.scale.linear()
     .range([height, 0]);
+	
+var color = d3.scale.category10();
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -37,7 +39,7 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left");
 
-var line = d3.svg.line()
+var line = d3.svg.circle()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.count); });
 
@@ -96,8 +98,6 @@ $(document).ready(function () {
             </div>
         <div class="clear"></div>
     </section>
-    
-    
 
 
 </body>

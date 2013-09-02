@@ -47,14 +47,9 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
-$(document).ready(function () {
+function updateChart (query){
 	
-	$('#s').keypress(function (event) {
-	  if (event.which == 13) {
-		event.preventDefault();
-
-		
-		d3.tsv("http://digitalinc.ie/authenticate/visuals/graph-search.php?q=" + $('#s').val(), function(error, data) {
+	d3.tsv("http://digitalinc.ie/authenticate/visuals/graph-search-with-caching.php?q=" + query, function(error, data) {
 			  data.forEach(function(d) {
 				d.date = parseDate(d.date);
 				d.count = +d.count;
@@ -83,20 +78,54 @@ $(document).ready(function () {
 				  .attr("class", "line")
 				  .attr("d", line);
 		});
+	
+	
+}
+	
+$(document).ready(function () {
+	
+	function QueryStringToJSON() {			
+		var pairs = location.search.slice(1).split('&');
+		
+		var result = {};
+		pairs.forEach(function(pair) {
+			pair = pair.split('=');
+			result[pair[0]] = decodeURIComponent(pair[1] || '');
+		});
+	
+		return JSON.parse(JSON.stringify(result));
+	}
+	
+	var qs = QueryStringToJSON();
+	
+	$('#s').val(qs.q);
+	updateChart(qs.q);
+	$('#s').keypress(function (event) {
+	  if (event.which == 13) {
+		event.preventDefault();
+		//updateChart($('#s').val());
+		document.location = 'search-graph-working.php?=' + $('#s').val();
+		
 		return false;
 	  }
 	});
 });
+
+
+		
 </script>
 
-	<section id="content-wrapper">
+<section id="content-wrapper">
             
-            <div class="search">
-                <input id="s" results=5 type="search" name="s" value="Type keyword and press enter to search" />
-            </div>
-        <div class="clear"></div>
-    </section>
+        <div class="search">
+            <input id="s" results=5 type="search" name="s" value="Type keyword and press enter to search" />
+        </div>
+        <!-- END search -->
+        
+    <div class="clear"></div><!-- END clear -->
     
+</section>
+<!-- END content-wrapper -->
     
 
 
