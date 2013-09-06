@@ -17,7 +17,7 @@ require_once("twitteroauth/twitteroauth.php"); //Path to twitteroauth library
 <body>
 
 <section class="top-ten-searches">
-    	<h1>Top-Ten Searches</h1>
+    	<h1>Saved Searches</h1>
         <ul>
             <li><a href="http://digitalinc.ie/authenticate/visuals/search-graph-working.php?q=picnic">picnic</a></li>
             <li><a href="http://digitalinc.ie/authenticate/visuals/search-graph-working.php?q=cats">cats</a></li>
