@@ -33,7 +33,7 @@ $result = mysql_query($sql);
         
         while($row = mysql_fetch_array($result))
          {
-         echo '<li><a href="http://digitalinc.ie/authenticate/visuals/search-graph-working.php?q=' . $row['search_terms'] . '">' . $row['search_terms'] . '</a></li>';
+         echo '<li><a href="http://digitalinc.ie/visual-with-search/search-graph-working.php?q=' . $row['search_terms'] . '">' . $row['search_terms'] . '</a></li>';
          }
         echo '</ol>';
         

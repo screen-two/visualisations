@@ -54,7 +54,7 @@ $(document).ready(function () {
 		event.preventDefault();
 
 		
-		d3.tsv("http://digitalinc.ie/authenticate/visuals/graph-search.php?q=" + $('#s').val(), function(error, data) {
+		d3.tsv("http://digitalinc.ie/visual-with-search/graph-search-with-caching.php?q=" + $('#s').val(), function(error, data) {
 			  data.forEach(function(d) {
 				d.date = parseDate(d.date);
 				d.count = +d.count;
@@ -78,10 +78,27 @@ $(document).ready(function () {
 				  .style("text-anchor", "end")
 				  .text("Tweets");
 			
-			  svg.append("path")
+			 /* svg.append("path")
 				  .datum(data)
 				  .attr("class", "line")
-				  .attr("d", line);
+				  .attr("d", line);*/
+				  
+			svg.selectAll(".select")
+			.data(data)
+			.enter().append("circle")
+			.attr("class", "select")
+			//.attr("d", line)
+			.attr("cx", function(d) { return x(d.date); })
+			.attr("cy", function(d) { return y(d.count); })
+			.attr("r", 60)
+			.style("fill", "blue")
+			.style("stroke", "none")
+			.style("stroke-opacity", 1e-6)
+			.style("stroke-width", 3)
+			.transition()
+			.duration(750)
+			.attr("r", 12)
+			.style("stroke-opacity", 1); 
 		});
 		return false;
 	  }

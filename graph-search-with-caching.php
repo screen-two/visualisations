@@ -54,7 +54,7 @@ $connection = getConnectionWithAccessToken($consumerkey, $consumersecret, $acces
 
 $latitude = "53.339381";
 $longitude = "-6.260533";
-$radius = "100km";
+$radius = "1000km";
 
 $status = array();
 
@@ -135,7 +135,7 @@ foreach ($counts as $date => $count)
 }
 
 //Grab the last 1 week of history for this search
-$sql = sprintf("SELECT * FROM saved_search_history WHERE saved_search_id = '%d' AND timestamp >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)", $search_id);
+$sql = sprintf("SELECT * FROM saved_search_history WHERE saved_search_id = '%d' AND timestamp >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK) ORDER BY timestamp DESC", $search_id);
 $result = mysql_query($sql);  
 //$result = mysql_fetch_array($query);
 
