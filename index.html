@@ -17,11 +17,39 @@
 
 
 <body>
+<header>
+    <div id="header-left">
+    
+        <div class="menu-icon">
+      	</div>
+      <!-- END menu-icon--> 
+
+  </div>
+    <!-- END header-left --> 
+    
+    
+    <div id="header-right">
+    <ul class="home-icons" >
+        <li class="compose-tweet"></li>
+        <li class="add-feed"></li>
+      </ul>
+    <!-- END home-icons-->
+    
+    <div class="clear"></div>
+  </div>
+  
+    <!-- END header-right --> 
+    
+  </header>
+  <!-- END header --> 
+  
+  
+<section class="content-wrapper">
+
 <script>
 
-
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 960 - margin.left - margin.right,
+    width = 820 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var parseDate = d3.time.format("%Y-%m-%d").parse;
@@ -115,14 +143,20 @@ $(document).ready(function () {
 });
 </script>
 
-	<section id="content-wrapper">
+</section>
+<!-- END content-wrapper -->
+
+	<section id="sidebar">
             
             <div class="search">
-				<input id="s" results=5 type="search" name="s" value="Type keyword and press go to search" />
-				<input id="update" type="button" value="go" />
+				<input id="s" results=5 type="search" name="s" value="Search Something..." />
+				<input id="update" type="button" value="Go" />
+                <input type="button" onclick="history.go(0)" value="search again">
             </div>
+            <!-- END search -->
         <div class="clear"></div>
-    </section>
+</section>
+    <!-- END section sidebar -->
     
     
 
