@@ -129,11 +129,11 @@ header #header-right {
 
 
 #sidebar {
-	background: #59c4bc;
+
 	width: 20%;
 	height: 600px;
 	float: left;
-	
+	margin: 20px 0 0 20px;
 }
 
 
@@ -147,36 +147,81 @@ header #header-right {
 /* ---- //// BEGIN SEARCH STYLES ////---- */
 
 
+input[type="search"] {
+	-webkit-appearance:caret; 
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	padding: 8px 58.1px 8px 5px;
+	float: left;
+	border: 0px;
+	
+}
+
+input[type=text]{
+	color:#fff;
+}
+
+input[type=button], input[type=button]:hover {
+	-webkit-appearance:caret;
+	position:relative; 
+	/*left:-3px;*/
+	border: 0px solid #adc5cf;
+	background: #0f6b6b; /* Old browsers */
+	color:#fff;
+	cursor: pointer;
+	padding: 7px 10px;
+}
+
+
+
 #s { 
-	color:  #00acee;;  
+	background: #59C4BB;
+	color:  #fff;  
 	text-align: left;
 	cursor: pointer;
 	display: block; 
-	width: 90%; 
 }
 
+.search {
+	border-bottom: 10px solid #292b2c;
+	background: #59c4bc;
+	
+}
+
+input:focus{
+    outline: 0;
+}
 
 /* ---- //// END SEARCH STYLES ////---- */
 
 
 /* ---- //// BEGIN SAVED SEARCHES STYLES ////---- */
 
-
-	.top-ten-searches {
-		margin: 100px auto;
-		padding: 50px;
-		background: #666;
+	form.search {
 		
 	}
 	
-	.top-ten-searches h1 {
-		font-size: 2.2em;
+	.saved {
+		padding: 5px 0;
+		background: #59c4bc;
+		
+	}
+	
+	.saved p {
+		font-size: 1em;
 		color: #fff;
 		margin: 15px auto;
 		
 	}
 	
-	.top-ten-searches ul li {
+	.saved ul {
+		margin: 0;
+		padding: 0 0 0 15px;
+	}
+	
+	.saved ul li {
 		font-size: 2em;
 		list-style: none;
 		font-family: 'Roboto', Arial, sans-serif;
@@ -184,40 +229,18 @@ header #header-right {
 		
 	}
 	
-	.top-ten-searches ul li a {
+	.saved ul li a {
 		text-decoration: none;
 		color: #fff;
 		
 	}
 	
-	.top-ten-searches ul li a:hover {
+	.saved ul li a:hover {
 		text-decoration: none;
 		color: #F90;
 		
 	}
 	
-	.saved-searches {
-		margin: 100px auto;
-		padding: 50px;
-		background: #666;
-	}
-	
-	.saved-searches ol li {
-		font-size: 2em;
-		font-family: 'Roboto', Arial, sans-serif;
-		line-height: 2;
-	}
-	
-	
-	.saved-searches ol li a {
-		text-decoration: none;
-		color: #fff;
-	}
-	
-	.saved-searches ol li a:hover {
-		text-decoration: none;
-		color: #F90;
-	}
 
 
 /* ---- //// END TOP TEN SEARCHES STYLES ////---- */
