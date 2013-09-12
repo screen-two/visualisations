@@ -118,8 +118,8 @@ $(document).ready(function () {
 	<section id="content-wrapper">
             
             <div class="search">
-				<input id="s" results=5 type="search" name="s" value="Type keyword and press go to search" />
-				<input id="update" type="button" value="go" />
+				<input id="s" results=5 type="search" name="s" value="Type keyword and press go to search" data-theme="a"/>
+				<input id="update" type="button" value="go" data-theme="a"/>
             </div>
         <div class="clear"></div>
     </section>

@@ -4,7 +4,7 @@
 /* ---- //// BEGIN GENERAL PAGE STYLES ////---- */
 
 body {
-    background:#e5e4e4;  
+    background: #292b2c !important;  
     font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	margin: 0;   
 }
@@ -44,7 +44,7 @@ img  {
 /* ---- //// BEGIN HEADER STYLES ////---- */
 
 header {
-	background: #72b9b5;
+	background: #711232;
 	max-width: 100%;
 	height: 30px;
 	margin: 0 auto;
@@ -129,7 +129,9 @@ header #header-right {
 
 
 #sidebar {
+	background: #59c4bc;
 	width: 20%;
+	height: 600px;
 	float: left;
 	
 }

@@ -14,25 +14,14 @@
 </head>
 
 <body>
+    <div data-role="page" id="profileScreen" data-theme="a">
+    
+        <div data-role="header" data-theme="a"> 
+            <a href="#back" data-rel="back" data-role="button" data-icon="back">Back</a> 
+            <a href="#profileScreen" data-rel="home" data-role="button" data-icon="home">Home</a> 
+        </div>
+      <!-- end header -->
 
-  <div data-role="header" data-theme="a">
-    <div id="header-left"> </div>
-    <!-- END header-left -->
-    
-    <div id="header-right">
-      <ul class="home-icons" >
-        <li class="compose-tweet"></li>
-        <li class="add-feed"></li>
-      </ul>
-      <!-- END home-icons-->
-      
-      <div class="clear"></div>
-    </div>
-    
-    <!-- END header-right --> 
-    
-  </div>
-  <!-- END header -->
   
   <div data-role="content" data-theme="a"> 
     <script>
@@ -141,10 +130,19 @@
       <input type="button" onclick="history.go(0)" value="search again" data-theme="a" />
     </div>
     <!-- END search -->
+    
+    
     <div class="clear"></div>
   </div>
   <!-- END section sidebar --> 
   
+  </div>
+   <div data-role="footer" data-id="navigationTabs" data-position="fixed" data-theme="a">
+    
+  </div>
+  <!-- end footer --> 
+  
+  <!-- END page -->
  
 </body>
 </html>
