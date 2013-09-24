@@ -13,13 +13,14 @@ if( isset($_GET) && isset($_GET['type']) && isset($_GET['q']) ){
 	$q=$_GET['q'];
 	$type=$_GET['type'];
 }
- 
-$twitteruser = "thisdigitalinc";
+
+
+$twitteruser = "TWITTER ACCOUNT";
 $notweets = 30;
-$consumerkey = "oXRHpijPXqkmpI01vB3XKQ";
-$consumersecret = "EBxsXvSZaDeiN08kHHtWaiiZyiGOdpsIP0UGBwy2g";
-$accesstoken = "1615587769-mhzmHR2bWQVlueppiW1mjwkrGMdGdw4qmoC6IMU";
-$accesstokensecret = "AcKfb0CjRi3mun0dpFQAhubh4Br8hLmlwac8G4IDJE";
+$consumerkey = "CONSUMER KEY";
+$consumersecret = "CONSUMER SECRET";
+$accesstoken = "ACCESS TOKEN";
+$accesstokensecret = "ACCESS TOKEN SECRET";
  
 function getConnectionWithAccessToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret) {
   $connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
