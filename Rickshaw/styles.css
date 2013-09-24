@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+section {
+	margin: 0 auto;
+	width: 900px;
+	height: 350px;
+}
+
+
+header h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666;
+	margin: 70px 0 0 45px;	
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666;
+	font-size: .8em;
+}
+
+
+
+#chart_container {
+			position: relative;
+			font-family: Arial, Helvetica, sans-serif;
+			margin: 45px 20px 0 45px;
+			width: 900px;
+}
+
+#chart {
+		position: relative;
+		left: 40px;
+		float: left;
+		
+}
+
+#col1 {
+	float: right;
+	width: 300;
+}
+
+#legend {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 0 0 10px;
+}
+
+
+#offset_form {
+        float: left;
+        margin: 2em 0 0 15px;
+        font-size: 13px;
+}
+
+#y_axis {
+		position: absolute;
+		top: 0px;
+		bottom: 0;
+		width: 40px;
+}
+
+
+
+footer {
+	width: 900px;
+	margin: 0 auto;
+	padding: 0 0 0 160px;
+}
+
+.clear {
+	clear: both;
+}
+

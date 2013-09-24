@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gun Crime in Ireland</title>
+
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/d3.layout.min.js"></script>
+<script src="rickshaw.min.js"></script>
+
+<link rel="stylesheet" href="rickshaw.min.css">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+
+<div id="y_axis"></div>
+<p>No. of Reported Gun Crimes</p>
+<div id="chart"></div>
+
+<script>
+
+var data = [ { x: 1072915199, y: 50 }, { x: 1104537599, y: 44 }, { x: 1136073599, y: 66 }, { x: 1167609599, y: 70 }, {x: 1199145599, y:86 }, {x: 1230767999, y:60 }, {x: 1262303999, y:61 }, {x: 1293839999, y:62 }, {x: 1325375999, y:45 }];
+
+var graph = new Rickshaw.Graph( {
+        element: document.querySelector("#chart"),
+        width: 580,
+        height: 250,
+        series: [ {
+                color: 'orange',
+                data: data
+        } ]
+} );
+
+var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
+
+var y_axis = new Rickshaw.Graph.Axis.Y( {
+        graph: graph,
+        orientation: 'left',
+        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+        element: document.getElementById('y_axis'),
+} );
+
+graph.render();
+
+
+</script>
+
+<h2>Rate of Gun Crime in Ireland 2003 - 20011</h2>
+</body>
+</html>

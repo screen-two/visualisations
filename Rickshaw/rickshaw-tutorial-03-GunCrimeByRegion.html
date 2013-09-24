@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gun Crime in Ireland</title>
+
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/d3.layout.min.js"></script>
+<script src="rickshaw.min.js"></script>
+
+<link rel="stylesheet" href="rickshaw.min.css">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h2>Number of Reported Gun Crimes in Ireland 2003 - 2011</h2>
+    </header>
+    
+    <section id="page-01">
+    
+    <div id="chart_container">
+        <div id="y_axis"></div>
+        <div id="chart"></div>
+        <div id="col1">
+            <div id="legend"></div>
+            
+            <form id="offset_form" class="toggler">
+                <input type="radio" name="offset" id="lines" value="lines" checked>
+                <label class="lines" for="lines">lines</label><br>
+                <input type="radio" name="offset" id="stack" value="zero">
+                <label class="stack" for="stack">stack</label>
+            </form>
+         </div>
+  	</div>   
+    <div class="clear"></div>       
+            <script>
+            
+                var palette = new Rickshaw.Color.Palette();
+                
+                var graph = new Rickshaw.Graph( {
+                        element: document.querySelector("#chart"),
+                        width: 580,
+                        height: 290,
+                        series: [ 
+                        
+                                {
+                                    name: "North",
+                                    data: [ { x: 1072915199, y: 5 }, { x: 1104537599, y: 2 }, { x: 1136073599, y: 10 }, { x: 1167609599, y: 7 }, {x: 1199145599, y: 9 }, {x: 1230767999, y: 8 }, {x: 1262303999, y: 7 }, {x: 1293839999, y: 21 }, {x: 1325375999, y: 20 }],
+                                    
+                                     color: palette.color()
+                                 
+                                },
+                                {
+                                    name: "West",
+                                    data: [ { x: 1072915199, y: 7 }, { x: 1104537599, y: 1 }, { x: 1136073599, y: 4 }, { x: 1167609599, y: 5 }, {x: 1199145599, y: 7 }, {x: 1230767999, y: 5 }, {x: 1262303999, y: 6 }, {x: 1293839999, y: 21 }, {x: 1325375999, y: 12 }],
+                                    
+                                    color: palette.color()
+                                 
+                                },
+                                {
+                                    name: "South",
+                                    data: [ { x: 1072915199, y: 16 }, { x: 1104537599, y: 20 }, { x: 1136073599, y: 14 }, { x: 1167609599, y: 4 }, {x: 1199145599, y: 20 }, {x: 1230767999, y: 16 }, {x: 1262303999, y: 20 }, {x: 1293839999, y: 26 }, {x: 1325375999, y: 26 }],
+                                    
+                                    color: palette.color()
+                                 
+                                },
+                                {
+                                    name: "East",
+                                    data: [ { x: 1072915199, y: 5 }, { x: 1104537599, y: 2 }, { x: 1136073599, y: 7 }, { x: 1167609599, y: 8 }, {x: 1199145599, y: 10 }, {x: 1230767999, y: 8 }, {x: 1262303999, y: 20 }, {x: 1293839999, y: 27 }, {x: 1325375999, y: 43 }],
+                                    
+                                    color: palette.color()
+                                     
+                                },
+                                {
+                                    name: "Southeast",
+                                    data: [ { x: 1072915199, y: 23 }, { x: 1104537599, y: 9 }, { x: 1136073599, y: 7 }, { x: 1167609599, y: 7 }, {x: 1199145599, y: 10 }, {x: 1230767999, y: 11 }, {x: 1262303999, y: 14 }, {x: 1293839999, y: 19 }, {x: 1325375999, y: 13 }],
+                                    
+                                    color: palette.color()
+                                 
+                                },
+                                {
+                                    name: "Dublin",
+                                    data: [ { x: 1072915199, y: 57 }, { x: 1104537599, y: 44 }, { x: 1136073599, y: 13 }, { x: 1167609599, y: 24 }, {x: 1199145599, y: 38 }, {x: 1230767999, y: 25 }, {x: 1262303999, y: 24 }, {x: 1293839999, y: 58 }, {x: 1325375999, y: 59 }],
+                                    
+                                    color: palette.color()
+                                 
+                                }
+                                
+                         ]
+                } );
+                
+                var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
+                
+                var y_axis = new Rickshaw.Graph.Axis.Y( {
+                        graph: graph,
+                        orientation: 'left',
+                        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+                        element: document.getElementById('y_axis'),
+                } );
+                
+                var legend = new Rickshaw.Graph.Legend( {
+                        element: document.querySelector('#legend'),
+                        graph: graph
+                } );
+				
+				var offsetForm = document.getElementById('offset_form');
+
+				offsetForm.addEventListener('change', function(e) {
+						var offsetMode = e.target.value;
+				
+						if (offsetMode == 'lines') {
+								graph.setRenderer('line');
+								graph.offset = 'zero';
+						} else {
+								graph.setRenderer('stack');
+								graph.offset = offsetMode;
+						}       
+						graph.render();
+				
+				}, false);
+
+                
+                graph.render();
+            
+            
+            </script>
+    </section>
+    <footer>
+    	<p>Taken from the <a href="http://www.cso.ie/en/releasesandpublications/crimeandjustice/">CSO Crime and Justice, Garda Recorded Crime Statistics 2003-2011 Publication</a></p>
+    </footer>
+
+
+</body>
+</html>
