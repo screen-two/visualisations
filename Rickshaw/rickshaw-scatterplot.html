@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gun Crime in Ireland</title>
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/d3.layout.min.js"></script>
+<script src="rickshaw.min.js"></script>
+<link rel="stylesheet" href="rickshaw.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<p>No. of Reported Gun Crimes</p>
+<div style="position:relative;">
+<div id="y_axis"></div>
+<div id="chart"></div>
+</div>
+<div class="clear"></div>
+<script>
+
+// set up our data series with 50 random data points
+/*
+var seriesData = [ [], [], [] ];
+var random = new Rickshaw.Fixtures.RandomData(150);
+
+for (var i = 0; i < 500; i++) {
+	random.addData(seriesData);
+}
+*/
+var palette = new Rickshaw.Color.Palette();
+                
+
+// instantiate our graph!
+
+var graph = new Rickshaw.Graph( {
+	element: document.getElementById("chart"),
+	width: 960,
+	height: 500,
+	renderer: 'scatterplot',
+	series: [    
+	{
+		name: "North",
+		data: [ { x: 1072915199, y: 5 }, { x: 1104537599, y: 2 }, { x: 1136073599, y: 10 }, { x: 1167609599, y: 7 }, {x: 1199145599, y: 9 }, {x: 1230767999, y: 8 }, {x: 1262303999, y: 7 }, {x: 1293839999, y: 21 }, {x: 1325375999, y: 20 }],
+		
+		 color: palette.color()
+	 
+	},
+	{
+		name: "West",
+		data: [ { x: 1072915199, y: 7 }, { x: 1104537599, y: 1 }, { x: 1136073599, y: 4 }, { x: 1167609599, y: 5 }, {x: 1199145599, y: 7 }, {x: 1230767999, y: 5 }, {x: 1262303999, y: 6 }, {x: 1293839999, y: 21 }, {x: 1325375999, y: 12 }],
+		
+		color: palette.color()
+	 
+	},
+	{
+		name: "South",
+		data: [ { x: 1072915199, y: 16 }, { x: 1104537599, y: 20 }, { x: 1136073599, y: 14 }, { x: 1167609599, y: 4 }, {x: 1199145599, y: 20 }, {x: 1230767999, y: 16 }, {x: 1262303999, y: 20 }, {x: 1293839999, y: 26 }, {x: 1325375999, y: 26 }],
+		
+		color: palette.color()
+	 
+	},
+	{
+		name: "East",
+		data: [ { x: 1072915199, y: 5 }, { x: 1104537599, y: 2 }, { x: 1136073599, y: 7 }, { x: 1167609599, y: 8 }, {x: 1199145599, y: 10 }, {x: 1230767999, y: 8 }, {x: 1262303999, y: 20 }, {x: 1293839999, y: 27 }, {x: 1325375999, y: 43 }],
+		
+		color: palette.color()
+		 
+	},
+	{
+		name: "Southeast",
+		data: [ { x: 1072915199, y: 23 }, { x: 1104537599, y: 9 }, { x: 1136073599, y: 7 }, { x: 1167609599, y: 7 }, {x: 1199145599, y: 10 }, {x: 1230767999, y: 11 }, {x: 1262303999, y: 14 }, {x: 1293839999, y: 19 }, {x: 1325375999, y: 13 }],
+		
+		color: palette.color()
+	 
+	},
+	{
+		name: "Dublin",
+		data: [ { x: 1072915199, y: 57 }, { x: 1104537599, y: 44 }, { x: 1136073599, y: 13 }, { x: 1167609599, y: 24 }, {x: 1199145599, y: 38 }, {x: 1230767999, y: 25 }, {x: 1262303999, y: 24 }, {x: 1293839999, y: 58 }, {x: 1325375999, y: 59 }],
+		
+		color: palette.color()
+	 
+	}]
+} );
+
+graph.renderer.dotSize = 6;
+
+new Rickshaw.Graph.HoverDetail({ graph: graph });
+
+var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
+                
+var y_axis = new Rickshaw.Graph.Axis.Y( {
+	graph: graph,
+	orientation: 'left',
+	tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+	element: document.getElementById('y_axis'),
+} );
+                
+
+graph.render();
+
+</script>
+<h2>Rate of Gun Crime in Ireland 2003 - 2011</h2>
+</body>
+</html>
