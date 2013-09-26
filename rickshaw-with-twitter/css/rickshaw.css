@@ -22,7 +22,7 @@
 	border-radius: 3px;
 	padding: 6px;
 	opacity: 0.5;
-	border: 1px solid #e0e0e0;
+	border: 1px solid #fff;
 	font-size: 12px;
 	position: absolute;
 	background: white;
@@ -105,7 +105,7 @@
 
 .rickshaw_annotation_timeline {
 	height: 1px;
-	border-top: 1px solid #e0e0e0;
+	border-top: 1px solid #fff;
 	margin-top: 10px;
 	position: relative;
 }

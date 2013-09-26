@@ -1,8 +1,8 @@
 <?php
 
 // connecting to db
-mysql_connect('DB HOSTNAME', 'DB USERNAME', 'DB PASSWORD');  
-mysql_select_db('DB NAME'); 
+mysql_connect('mysql1859int.cp.blacknight.com', 'u1148707_screen2', 'Arch1p3lag0');  
+mysql_select_db('db1148707_screen2'); 
 
 $sql="SELECT * FROM saved_search";
 

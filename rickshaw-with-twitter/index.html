@@ -6,177 +6,185 @@
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://d3js.org/d3.v3.js"></script>
 <script src="./scripts/rickshaw.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
 <link href="css/rickshaw.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<div style="position:relative;">
-<div id="y_axis"></div>
-<div id="chart"></div>
-</div>
-<div class="clear"></div>
-<script>
-
-var palette = new Rickshaw.Color.Palette();
-                
-
-// instantiate our graph!
-
-var graph = new Rickshaw.Graph( {
-	element: document.getElementById("chart"),
-	width: 820,
-	height: 500,
-	renderer: 'scatterplot',
-	series: [    
-	{
-		name: "North",
-		data: [ { x: 1072915199, y: 5 }, { x: 1104537599, y: 2 }, { x: 1136073599, y: 10 }, { x: 1167609599, y: 7 }, {x: 1199145599, y: 9 }, {x: 1230767999, y: 8 }, {x: 1262303999, y: 7 }, {x: 1293839999, y: 21 }, {x: 1325375999, y: 20 }],
-		
-		 color: palette.color()
-	 
-	},
-	{
-		name: "West",
-		data: [ { x: 1072915199, y: 7 }, { x: 1104537599, y: 1 }, { x: 1136073599, y: 4 }, { x: 1167609599, y: 5 }, {x: 1199145599, y: 7 }, {x: 1230767999, y: 5 }, {x: 1262303999, y: 6 }, {x: 1293839999, y: 21 }, {x: 1325375999, y: 12 }],
-		
-		color: palette.color()
-	 
-	},
-	{
-		name: "South",
-		data: [ { x: 1072915199, y: 16 }, { x: 1104537599, y: 20 }, { x: 1136073599, y: 14 }, { x: 1167609599, y: 4 }, {x: 1199145599, y: 20 }, {x: 1230767999, y: 16 }, {x: 1262303999, y: 20 }, {x: 1293839999, y: 26 }, {x: 1325375999, y: 26 }],
-		
-		color: palette.color()
-	 
-	},
-	{
-		name: "East",
-		data: [ { x: 1072915199, y: 5 }, { x: 1104537599, y: 2 }, { x: 1136073599, y: 7 }, { x: 1167609599, y: 8 }, {x: 1199145599, y: 10 }, {x: 1230767999, y: 8 }, {x: 1262303999, y: 20 }, {x: 1293839999, y: 27 }, {x: 1325375999, y: 43 }],
-		
-		color: palette.color()
-		 
-	},
-	{
-		name: "Southeast",
-		data: [ { x: 1072915199, y: 23 }, { x: 1104537599, y: 9 }, { x: 1136073599, y: 7 }, { x: 1167609599, y: 7 }, {x: 1199145599, y: 10 }, {x: 1230767999, y: 11 }, {x: 1262303999, y: 14 }, {x: 1293839999, y: 19 }, {x: 1325375999, y: 13 }],
-		
-		color: palette.color()
-	 
-	},
-	{
-		name: "Dublin",
-		data: [ { x: 1072915199, y: 57 }, { x: 1104537599, y: 44 }, { x: 1136073599, y: 13 }, { x: 1167609599, y: 24 }, {x: 1199145599, y: 38 }, {x: 1230767999, y: 25 }, {x: 1262303999, y: 24 }, {x: 1293839999, y: 58 }, {x: 1325375999, y: 59 }],
-		
-		color: palette.color()
-	 
-	}]
-} );
-
-graph.renderer.dotSize = 6;
-
-new Rickshaw.Graph.HoverDetail({ graph: graph });
-
-var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
-                
-var y_axis = new Rickshaw.Graph.Axis.Y( {
-	graph: graph,
-	orientation: 'left',
-	tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
-	element: document.getElementById('y_axis'),
-} );
-                
-
-graph.render();
-
- $(document).ready(function () {
-	 
-	 
-	$.get('get-saved-searches.php', function(data){
-		
-		$('div.saved p').html(data);
-		$('div.saved ul').click(function(event){
-			var target = $(event.target);
-			if(target.is('a')){
-				$('#s').val(target.text());
-				return updateChart(event);
-			}
-		});
-	});
-	
-	$.get('http://dechasamediablog.com/trend/trend.php', function(data){
-		
-		$('div.top-ten p').html('');
-		 $(data).each(function(index, name) {
-        	ul.append($(document.createElement('li')).text(name));
-    	});
-		
-		
-		$('div.top-ten ul').click(function(event){
-			var target = $(event.target);
-			if(target.is('a')){
-				$('#s').val(target.text());
-				return updateChart(event);
-			}
-		});
-	});
-	
-	
-	
-});
-
-
-</script>
-  <header>
-    <div id="header-left"> </div>
-    <!-- END header-left -->
-    
-    <div id="header-right">
-      <ul class="home-icons" >
-        <li class="compose-tweet"></li>
-        <li class="add-feed"></li>
-      </ul>
-      <!-- END home-icons-->
-      
-      <div class="clear"></div>
-    </div>
-    
-    <!-- END header-right --> 
-    
-  </header>
-  <!-- END header -->
+<header>
+  <div id="header-left"> </div>
+  <!-- END header-left -->
   
-  <div id="sidebar">
-  
-    <div class="search">
-    
-    	<form class="search">
-          <input id="s" results=5 type="search" name="s" value="Search Something..." /><input id="update" type="button" value="Go" />
-        </form>
-        <input id="reset-search" type="button" onclick="history.go(0)" value="search again" />
-    </div>
-    <!-- END search -->
-    
+  <div id="header-right">
+    <ul class="home-icons" >
+      <li class="compose-tweet"></li>
+      <li class="add-feed"></li>
+    </ul>
+    <!-- END home-icons-->
     
     <div class="clear"></div>
-    <div class="saved">
-    	<p>Search History</p>
-    </div>
-    
+  </div>
+  
+  <!-- END header-right --> 
+  
+</header>
+<!-- END header -->
+<div id="sidebar">
+  <div class="search">
+    <form class="search">
+      <input id="s" results=5 type="search" name="s" value="Search Something..." />
+      <input id="update" type="button" value="Go" />
+    </form>
+    <input id="reset-search" type="button" onclick="history.go(0)" value="search again" />
+  </div>
+  <!-- END search -->
+  <div class="clear"></div>
+  <!--Snippet for accordion taken from  http://jqueryui.com/accordion/ -->
+  <div id="accordion">
+    <h3>Search History</h3>
+    <div class="saved"> </div>
+    <h3>Top Trends</h3>
     <div class="top-ten">
-    	<p>Top Trends</p>
+      <ul>
+      </ul>
     </div>
+  </div>
+</div>
+<!-- END section sidebar -->
 
-  </div>
-  
-  <p>&nbsp;</p>
-  <!-- END section sidebar --> 
-  
-  <div class="content"> 
+
+
+<div style="position:relative;">
+  <div id="y_axis"></div>
+  <div id="chart"></div>
+</div>
+<div class="clear"></div>
+
+
+<script>
+	
+	$(document).ready(function () {
     
-  </div>
-  <!-- END content -->
-  
- 
+    var palette = new Rickshaw.Color.Palette();
+                    
+    
+    // instantiate our graph!
+    
+    var graph = new Rickshaw.Graph( {
+        element: document.getElementById("chart"),
+        width: 720,
+        height: 500,
+        renderer: 'scatterplot',
+        series: [    
+        {
+            name: "North",
+            data: [ { x: 1072915199, y: 5 }, { x: 1104537599, y: 2 }, { x: 1136073599, y: 10 }, { x: 1167609599, y: 7 }, {x: 1199145599, y: 9 }, {x: 1230767999, y: 8 }, {x: 1262303999, y: 7 }, {x: 1293839999, y: 21 }, {x: 1325375999, y: 20 }],
+            
+             color: palette.color()
+         
+        }]
+    } );
+    
+    graph.renderer.dotSize = 6;
+    
+    new Rickshaw.Graph.HoverDetail({ graph: graph });
+    
+    var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
+                    
+    var y_axis = new Rickshaw.Graph.Axis.Y( {
+        graph: graph,
+        orientation: 'left',
+        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+        element: document.getElementById('y_axis'),
+    } );
+                    
+    
+    graph.render();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//Search event
+	 $('#s').keypress(function (event) {
+            if (event.which == 13) {
+                return updateChart(event);
+            }
+        });
+		
+		$('#s').click(function (event) {
+            if ($(this).val() == 'Search Something...') {
+                $(this).val('');
+            }
+        });
+        
+        $('input#update').click(function (event) {
+            return updateChart(event);
+        });
+	//END Search Events
+		
+		
+    
+     
+         <!--Snippet for accordion taken from  http://jqueryui.com/accordion/#no-auto-height -->
+        $( "#accordion" ).accordion({
+          heightStyle: "content",
+		  collapsible: true,
+		  active: false
+		  
+        });
+    
+         
+        //Code to get saved searches from database 
+        $.get('get-saved-searches.php', function(data){
+            
+            $('div.saved').append(data);
+            $('div.saved ul').click(function(event){
+                var target = $(event.target);
+                if(target.is('a')){
+                    $('#s').val(target.text());
+                    return updateChart(event);
+                }
+            });
+        });
+		//END Saved Searches
+		
+		
+		//Code to get the top ten trends
+        
+        // Parse out the JSON object 
+        $.get('./trend.php', function(data){
+            var ul = $('div.top-ten ul');
+            data = JSON.parse(data);
+             $(data).each(function(index, trend) {
+                ul.append($(document.createElement('li')).text(trend.name));
+            });
+            
+            
+            $('div.top-ten ul').click(function(event){
+                var target = $(event.target);
+                if(target.is('a')){
+                    $('#s').val(target.text());
+                    return updateChart(event);
+                }
+            });
+        });
+		//END Top Ten Trends
+        
+        
+        
+    });
+    
+    
+    </script>
+<div class="content"> </div>
+<!-- END content -->
+
 </body>
 </html>

@@ -15,8 +15,8 @@ if( isset($_GET) && isset($_GET['q']) ){
 	die('no params provided');
 }
 
-mysql_connect('DB HOSTNAME', 'DB USER NAME', 'DB PASSWORD');  
-mysql_select_db('DB NAME');  
+mysql_connect('mysql1859int.cp.blacknight.com', 'u1148707_screen2', 'Arch1p3lag0');  
+mysql_select_db('db1148707_screen2');  
 
 $search_id = 0;
 
@@ -38,12 +38,12 @@ if(empty($result)){
 	$last_tweet_id = $result['last_tweet_id'];
 }
  
-$twitteruser = "TWITTER USER NAME";
+$twitteruser = "thisdigitalinc";
 $notweets = 30;
-$consumerkey = "CONSUMER KEY";
-$consumersecret = "CONSUMER SECRET";
-$accesstoken = "ACCESS TOKEN";
-$accesstokensecret = "ACCESS TOKEN SECRET";
+$consumerkey = "oXRHpijPXqkmpI01vB3XKQ";
+$consumersecret = "EBxsXvSZaDeiN08kHHtWaiiZyiGOdpsIP0UGBwy2g";
+$accesstoken = "1615587769-mhzmHR2bWQVlueppiW1mjwkrGMdGdw4qmoC6IMU";
+$accesstokensecret = "AcKfb0CjRi3mun0dpFQAhubh4Br8hLmlwac8G4IDJE";
  
 function getConnectionWithAccessToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret) {
   $connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);

@@ -131,14 +131,70 @@ header #header-right {
 #sidebar {
 	background: #59C4BB; 
 	color: #fff;
-	width: 20%;
+	width: 25%;
 	height: 600px;
 	float: left;
 	margin: 20px 0 0 20px;
 }
 
+.ui-accordion .ui-accordion-icons {
+	background: #59C4BB;
+	color: #fff;
+	
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+	border-radius: none !important;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+	border-radius: 0 !important;	
+}
 
 
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+	border-radius: none !important;	
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+	border-radius: none !important;	
+}
+
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	border-bottom: 1px #FFFFFF solid;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border-bottom: 1px #FFFFFF solid !important;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	border: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background: background: #59C4BB;
+	border: none;
+}
+
+
+.ui-widget-content {
+	background: #59C4BB; 
+	color: #fff;
+	border: none;
+}
+
+.ui-helper-reset ul {
+	margin: 0;
+	padding: 0;
+}
+
+.ui-helper-reset ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
 
 
@@ -228,7 +284,7 @@ input:focus{
 	}
 	
 	.saved ul li {
-		font-size: 2em;
+		font-size: 1em;
 		list-style: none;
 		font-family: 'Roboto', Arial, sans-serif;
 		line-height: 2;
