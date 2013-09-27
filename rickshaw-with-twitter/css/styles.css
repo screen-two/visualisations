@@ -131,7 +131,7 @@ header #header-right {
 #sidebar {
 	background: #59C4BB; 
 	color: #fff;
-	width: 25%;
+	width: 20%;
 	height: 600px;
 	float: left;
 	margin: 20px 0 0 20px;
@@ -209,12 +209,12 @@ header #header-right {
 }
 
 input[type="search"] {
-	-webkit-appearance:caret; 
+	-webkit-appearance:none; 
 	border-radius: 0;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	padding: 8px 58.1px 8px 5px;
+	padding: 8px 44px 8px 5px;
 	float: left;
 	border: 0px;
 	
@@ -225,7 +225,7 @@ input[type=text]{
 }
 
 input[type=button], input[type=button]:hover {
-	-webkit-appearance:caret;
+	-webkit-appearance:none;
 	position:relative; 
 	/*left:-3px;*/
 	border: 0px solid #adc5cf;
@@ -311,10 +311,14 @@ input:focus{
 
 /* ---- //// GRAPH STYLES ////---- */
 
+.content {
+	
+	
+}
 
 section {
 	margin: 0 auto;
-	width: 900px;
+	width: 60%;
 	height: 350px;
 }
 
@@ -322,7 +326,7 @@ section {
 			position: relative;
 			font-family: Arial, Helvetica, sans-serif;
 			margin: 45px 20px 0 45px;
-			width: 900px;
+			float:left;
 }
 
 #chart {

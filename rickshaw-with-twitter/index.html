@@ -34,7 +34,7 @@
 <div id="sidebar">
   <div class="search">
     <form class="search">
-      <input id="s" results=5 type="search" name="s" value="Search Something..." />
+      <input id="s" results=5 type="search" name="s" value="Search..." />
       <input id="update" type="button" value="Go" />
     </form>
     <input id="reset-search" type="button" onclick="history.go(0)" value="search again" />
@@ -54,136 +54,179 @@
 </div>
 <!-- END section sidebar -->
 
-
-
-<div style="position:relative;">
-  <div id="y_axis"></div>
-  <div id="chart"></div>
-</div>
-<div class="clear"></div>
-
-
-<script>
-	
-	$(document).ready(function () {
+<div class="content">
+    <div id="chart_container">
     
-    var palette = new Rickshaw.Color.Palette();
-                    
+    <div style="position:relative;">
+      <div id="y_axis"></div>
+      <div id="chart"></div>
+    </div>
+    <div class="clear"></div>
     
-    // instantiate our graph!
     
-    var graph = new Rickshaw.Graph( {
-        element: document.getElementById("chart"),
-        width: 720,
-        height: 500,
-        renderer: 'scatterplot',
-        series: [    
-        {
-            name: "North",
-            data: [ { x: 1072915199, y: 5 }, { x: 1104537599, y: 2 }, { x: 1136073599, y: 10 }, { x: 1167609599, y: 7 }, {x: 1199145599, y: 9 }, {x: 1230767999, y: 8 }, {x: 1262303999, y: 7 }, {x: 1293839999, y: 21 }, {x: 1325375999, y: 20 }],
+    <script>
+        
+        $(document).ready(function () {
+        
+        var palette = new Rickshaw.Color.Palette();
+                        
+        
+        // instantiate our graph!
+        
+        var graph = new Rickshaw.Graph( {
+            element: document.getElementById("chart"),
+            width: 720,
+            height: 500,
+            renderer: 'scatterplot',
+            dataURL: 'test.json',
+            series: [ 
+                
+                        {
+                            name: "North",
+                            data: [ { x: 1072915199, y: 5 , r: 30 }, { x: 1104537599, y: 2, r: 10  }, { x: 1136073599, y: 10, r: 20  }, { x: 1167609599, y: 7, r: 5 }, {x: 1199145599, y: 9, r: 2  }, {x: 1230767999, y: 8, r: 15  }, {x: 1262303999, y: 7, r: 8  }, {x: 1293839999, y: 21, r: 13  }, {x: 1325375999, y: 20, r: 19  }],
+                            
+                             color: palette.color()
+                         
+                        },
+                        {
+                            name: "West",
+                            data: [ { x: 1072915199, y: 7, r: 10 }, { x: 1104537599, y: 1,  r: 2 }, { x: 1136073599, y: 4, r: 20 }, { x: 1167609599, y: 5,  r: 30 }, {x: 1199145599, y: 7,  r: 15 }, {x: 1230767999, y: 5,  r: 17 }, {x: 1262303999, y: 6,  r: 10 }, {x: 1293839999, y: 21, r: 30  }, {x: 1325375999, y: 12,  r: 12 }],
+                            
+                            color: palette.color()
+                         
+                        },
+                        {
+                            name: "South",
+                            data: [ { x: 1072915199, y: 16,  r: 5 }, { x: 1104537599, y: 20,  r: 10 }, { x: 1136073599, y: 14,  r: 2 }, { x: 1167609599, y: 4,  r: 30 }, {x: 1199145599, y: 20,  r: 25 }, {x: 1230767999, y: 16,  r: 17 }, {x: 1262303999, y: 20,  r: 8 }, {x: 1293839999, y: 26,  r: 4 }, {x: 1325375999, y: 26,  r: 22 }],
+                            
+                            color: palette.color()
+                         
+                        },
+                        {
+                            name: "East",
+                            data: [ { x: 1072915199, y: 5,  r: 21 }, { x: 1104537599, y: 2,  r: 15 }, { x: 1136073599, y: 7,  r: 5 }, { x: 1167609599, y: 8,  r: 15 }, {x: 1199145599, y: 10,  r: 8 }, {x: 1230767999, y: 8,  r: 14 }, {x: 1262303999, y: 20,  r: 30 }, {x: 1293839999, y: 27,  r: 10 }, {x: 1325375999, y: 43,  r: 35 }],
+                            
+                            color: palette.color()
+                             
+                        },
+                        {
+                            name: "Southeast",
+                            data: [ { x: 1072915199, y: 23,  r: 23 }, { x: 1104537599, y: 9,  r: 9 }, { x: 1136073599, y: 7,  r: 7 }, { x: 1167609599, y: 7,  r: 10 }, {x: 1199145599, y: 10,  r: 12 }, {x: 1230767999, y: 11,  r: 15 }, {x: 1262303999, y: 14,  r: 14 }, {x: 1293839999, y: 19,  r: 20 }, {x: 1325375999, y: 13,  r: 13 }],
+                            
+                            color: palette.color()
+                         
+                        },
+                        {
+                            name: "Dublin",
+                            data: [ { x: 1072915199, y: 57,  r: 30 }, { x: 1104537599, y: 44,  r: 10,  r: 20 }, { x: 1136073599, y: 13,  r: 10 }, { x: 1167609599, y: 24,  r: 17 }, {x: 1199145599, y: 38,  r: 10 }, {x: 1230767999, y: 25,  r: 12 }, {x: 1262303999, y: 24,  r: 14 }, {x: 1293839999, y: 58,  r: 16 }, {x: 1325375999, y: 59,  r: 30 }],
+                            
+                            color: palette.color()
+                         
+                        }
+                                    
+                             ]
+    
+        } );
+        
+        //graph.renderer.dotSize = 6;
+        
+        new Rickshaw.Graph.HoverDetail({ graph: graph });
+        
+        var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
+                        
+        var y_axis = new Rickshaw.Graph.Axis.Y( {
+            graph: graph,
+            orientation: 'left',
+            tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+            element: document.getElementById('y_axis'),
+        } );
+                        
+        
+        graph.render();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //Search event
+         $('#s').keypress(function (event) {
+                if (event.which == 13) {
+                    return updateChart(event);
+                }
+            });
             
-             color: palette.color()
-         
-        }]
-    } );
-    
-    graph.renderer.dotSize = 6;
-    
-    new Rickshaw.Graph.HoverDetail({ graph: graph });
-    
-    var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
-                    
-    var y_axis = new Rickshaw.Graph.Axis.Y( {
-        graph: graph,
-        orientation: 'left',
-        tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
-        element: document.getElementById('y_axis'),
-    } );
-                    
-    
-    graph.render();
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Search event
-	 $('#s').keypress(function (event) {
-            if (event.which == 13) {
+            $('#s').click(function (event) {
+                if ($(this).val() == 'Search Something...') {
+                    $(this).val('');
+                }
+            });
+            
+            $('input#update').click(function (event) {
                 return updateChart(event);
-            }
-        });
-		
-		$('#s').click(function (event) {
-            if ($(this).val() == 'Search Something...') {
-                $(this).val('');
-            }
-        });
+            });
+        //END Search Events
+            
+            
         
-        $('input#update').click(function (event) {
-            return updateChart(event);
-        });
-	//END Search Events
-		
-		
-    
-     
-         <!--Snippet for accordion taken from  http://jqueryui.com/accordion/#no-auto-height -->
-        $( "#accordion" ).accordion({
-          heightStyle: "content",
-		  collapsible: true,
-		  active: false
-		  
-        });
-    
          
-        //Code to get saved searches from database 
-        $.get('get-saved-searches.php', function(data){
-            
-            $('div.saved').append(data);
-            $('div.saved ul').click(function(event){
-                var target = $(event.target);
-                if(target.is('a')){
-                    $('#s').val(target.text());
-                    return updateChart(event);
-                }
+             <!--Snippet for accordion taken from  http://jqueryui.com/accordion/#no-auto-height -->
+            $( "#accordion" ).accordion({
+              heightStyle: "content",
+              collapsible: true,
+              active: false
+              
             });
+        
+             
+            //Code to get saved searches from database 
+            $.get('get-saved-searches.php', function(data){
+                
+                $('div.saved').append(data);
+                $('div.saved ul').click(function(event){
+                    var target = $(event.target);
+                    if(target.is('a')){
+                        $('#s').val(target.text());
+                        return updateChart(event);
+                    }
+                });
+            });
+            //END Saved Searches
+            
+            
+            //Code to get the top ten trends
+            
+            // Parse out the JSON object 
+            $.get('./trend.php', function(data){
+                var ul = $('div.top-ten ul');
+                data = JSON.parse(data);
+                 $(data).each(function(index, trend) {
+                    ul.append($(document.createElement('li')).text(trend.name));
+                });
+                
+                
+                $('div.top-ten ul').click(function(event){
+                    var target = $(event.target);
+                    if(target.is('a')){
+                        $('#s').val(target.text());
+                        return updateChart(event);
+                    }
+                });
+            });
+            //END Top Ten Trends
+            
+            
+            
         });
-		//END Saved Searches
-		
-		
-		//Code to get the top ten trends
-        
-        // Parse out the JSON object 
-        $.get('./trend.php', function(data){
-            var ul = $('div.top-ten ul');
-            data = JSON.parse(data);
-             $(data).each(function(index, trend) {
-                ul.append($(document.createElement('li')).text(trend.name));
-            });
-            
-            
-            $('div.top-ten ul').click(function(event){
-                var target = $(event.target);
-                if(target.is('a')){
-                    $('#s').val(target.text());
-                    return updateChart(event);
-                }
-            });
-        });
-		//END Top Ten Trends
         
         
-        
-    });
-    
-    
-    </script>
-<div class="content"> </div>
+        </script>
+	</div>
+    <!-- END chart_container -->
+</div>
 <!-- END content -->
 
 </body>
